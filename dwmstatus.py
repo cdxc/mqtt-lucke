@@ -1,3 +1,4 @@
+#!/usr/bin/python3.9
 import time
 import json
 import os
@@ -18,14 +19,14 @@ c.on_connect=on_connect
 def on_message(client, userdata, message):
 	global t
 	pack = json.loads(message.payload)
-	t = str(pack["BME280"]["Temperature"]) + str(pack["TempUnit"] + "C° ")
+	t = str(pack["BME280"]["Temperature"]) +"C°"
 	
 c.connect("192.168.1.10", port=1883, keepalive=60,bind_address="")
 c.loop_start()
 c.on_message=on_message
 c.subscribe("tele/pm10n2/SENSOR")
 while True:
-	status = 'xsetroot -name "$(date)"  ' + t
+	status = 'xsetroot -name "$(date) '+t+'"'
 	os.system(status)
 	time.sleep(1) 
 
