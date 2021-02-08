@@ -16,12 +16,12 @@ with sr.Microphone() as source:
 	r.adjust_for_ambient_noise(source)
 	r.energy_threshold = 4000 
 	r.dynamic_energy_threshold = True
+while True:
+	try:
+		text = r.recognize_google(audio)
+		print('You said: {}'.format(text))
+		if("light" in text):
+			mqttlib.light_toggle("TOGGLE")
 
-try:
-	text = r.recognize_google(audio)
-	print('You said: {}'.format(text))
-	if("light" in text):
-		mqttlib.light_toggle("TOGGLE")
-
-except:
-	print('not working')
+	except:
+		print('not working')
