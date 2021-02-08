@@ -27,7 +27,6 @@ def on_message(client, userdata, message):
 	t = str(pack["BME280"]["Temperature"]) +"°C "
 	v = str(pack["BME280"]["Humidity"]) + "% "
 	p = str(pack["BME280"]["Pressure"]) + "hPa"
-	
 c.connect("192.168.1.10", port=1883, keepalive=60,bind_address="")
 c.loop_start()
 c.on_message=on_message
@@ -38,4 +37,3 @@ while True:
 	time.sleep(1) 
 
 c.loop.stop()
-	

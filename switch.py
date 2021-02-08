@@ -1,8 +1,6 @@
 #!/usr/bin/python3.7
-
-import paho.mqtt.client as mqtt
-import time
 import mqttlib 
-mqttlib.profile()
+
+mqttlib.identify()
 mqttlib.connect()
-mqttlib.switch()
+mqttlib.light_toggle("TOGGLE")
