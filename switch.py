@@ -3,7 +3,7 @@ import paho.mqtt.client as mqtt
 import sys
 c = mqtt.Client()
 
-c.username_pw_set(username="svit",password="svit30042005")
+c.username_pw_set(username="",password="")
 c.connect("192.168.1.10", port=1883,)
 
 if sys.argv[1] == "luc":
